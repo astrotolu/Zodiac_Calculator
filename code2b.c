@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
 
 char zodiac_sign(int, char *); // check zodiac sign
 // void converttoLC(char *); //convert month to lower case
 
 int main()
 {
-    int _day = 0;
-    char *_month = {0};
+    int day = 0;
+    char month[35] = {'\0'};
 
     printf("\nEnter your birth day: ");
-    scanf("%d", &_day);
+    scanf("%d", &day);
     printf("\nEnter ypur birth month: ");
-    scanf("%s", &_month);
+    scanf("%s", &month);
 
     printf("\nYour zodiac sign is  %s", zodiac_sign(day, month));
 }
@@ -31,16 +32,29 @@ int main()
 //     return month[x];
 // }
 
-char zodiac_sign(day, month)
+#define DECEMBER "december"
+#define JANUARY "january"
+#define FEBRUARY "februray"
+#define MARCH "march"
+#define APRIL "april"
+#define MAY "may"
+#define JUNE "june"
+#define JULY "july"
+#define AUGUST "august"
+#define SEPTEMBER "september"
+#define OCTOBER "october"
+#define NOVEMBER "november"
+
+char zodiac_sign(int day, char *month)
 {
     // int day = 0;
-    // char month = {0};
+    // char month[12] =
 
     // converttoLC(month);
 
-    char astro_sign[20] = {0};
+    char *astro_sign = {'\0'};
 
-    if (month == "december")
+    if (strcmp(month, DECEMBER) == 0)
     {
 
         if (day < 22)
@@ -54,7 +68,7 @@ char zodiac_sign(day, month)
         }
     }
 
-    else if (month == "january")
+    else if (strcmp(month, JANUARY) == 0)
     {
 
         if (day < 20)
@@ -67,7 +81,7 @@ char zodiac_sign(day, month)
             astro_sign = "Aquarius";
         }
     }
-    else if (month == "februray")
+    else if (strcmp(month, FEBRUARY) == 0)
     {
 
         if (day < 19)
@@ -81,7 +95,7 @@ char zodiac_sign(day, month)
             astro_sign = "pisces";
         }
     }
-    else if (month == "march")
+    else if (strcmp(month, MARCH) == 0)
     {
 
         if (day < 21)
@@ -94,7 +108,21 @@ char zodiac_sign(day, month)
             astro_sign = "aries";
         }
     }
-    else if (month == "may")
+    else if (strcmp(month, APRIL) == 0)
+    {
+
+        if (day < 20)
+        {
+
+            astro_sign = "aries";
+        }
+        else
+        {
+
+            astro_sign = "taurus";
+        }
+    }
+    else if (strcmp(month, MAY) == 0)
     {
 
         if (day < 21)
@@ -108,7 +136,7 @@ char zodiac_sign(day, month)
             astro_sign = "gemini";
         }
     }
-    else if (month == "june")
+    else if (strcmp(month, JUNE) == 0)
     {
 
         if (day < 21)
@@ -122,7 +150,7 @@ char zodiac_sign(day, month)
             astro_sign = "cancer";
         }
     }
-    else if (month == "july")
+    else if (strcmp(month, JULY) == 0)
     {
 
         if (day < 23)
@@ -135,7 +163,7 @@ char zodiac_sign(day, month)
             astro_sign = "leo";
         }
     }
-    else if (month == "august")
+    else if (strcmp(month, AUGUST) == 0)
     {
 
         if (day < 23)
@@ -148,7 +176,7 @@ char zodiac_sign(day, month)
             astro_sign = "virgo";
         }
     }
-    else if (month == "september")
+    else if (strcmp(month, SEPTEMBER) == 0)
     {
 
         if (day < 23)
@@ -162,7 +190,7 @@ char zodiac_sign(day, month)
             astro_sign = "libra";
         }
     }
-    else if (month == "october")
+    else if (strcmp(month, OCTOBER) == 0)
     {
 
         if (day < 23)
@@ -176,7 +204,7 @@ char zodiac_sign(day, month)
             astro_sign = "scorpio";
         }
     }
-    else if (month == "november")
+    else if (strcmp(month, NOVEMBER) == 0)
     {
 
         if (day < 22)
@@ -191,5 +219,5 @@ char zodiac_sign(day, month)
         }
     }
 
-    printf("%s", astro_sign);
+    return astro_sign;
 }
